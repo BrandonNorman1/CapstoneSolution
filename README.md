@@ -1,1 +1,10 @@
 # CapstoneSolution
+
+The javascript file in this repo is the testing grounds for the logic behind my Spring 2022 capstone project at UA Little Rock. The rest of the project has been lost due to my computer blowing up. This file was all that I recovered.
+
+The project required the developer to create a full web application. The application would be capable of storing a collection of professors and courses. The application would be able to take each of these factors and schedule courses. Professors could only take on so many courses, and their courses could not overlap each other. The challenge was to find all schedules that fit the given set of courses and professors.
+
+The file contains all of the core logic of the application. The original application used the MERN stack. I chose it because my previous courses had not gone very deep into web application development. From what I understood, the MERN stack was relatively simple to learn and easy to manage for a one man development team. The entire application using Javascript? Even better. I did not have to learn a completely new language. 
+
+I used recursive backtracking to solve this problem. I had remembered using it years before as a maze solving algorithm, and it just so happened to fit this use case quite well. The solution revolves around a stack and the decide function. The decide function takes a state object and the stack, then begins by looking at all the classes that are available. This class is compared to each professor to create a fit score. The pairing is scored on multiple factors including the amount of courses a professor can teach and already have taken to teach, the specialties that each professor has, and the specialties each course requires. Those pairings with the worst fit are immediately excluded, while those with the best fit are pushed onto a stack. If we reach a dead end where no professors can be paired with remaining courses, we pop from the stack until we get back to a point where we can continue to make pairs until both the course and professor array are empty.
+
